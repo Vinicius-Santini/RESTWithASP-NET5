@@ -38,9 +38,22 @@ namespace RestWithASPNET.Controllers
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                var subtraction = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
 
-                return Ok(sum.ToString());
+                return Ok(subtraction.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("multiplication/{firstNumber}/{secondNumber}")]
+        public IActionResult Multiplication(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var multiplication = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+
+                return Ok(multiplication.ToString());
             }
 
             return BadRequest("Invalid Input");
