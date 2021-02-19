@@ -72,6 +72,19 @@ namespace RestWithASPNET.Controllers
             return BadRequest("Invalid Input");
         }
 
+        [HttpGet("average/{firstNumber}/{secondNumber}")]
+        public IActionResult Average(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var average = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
+
+                return Ok(average.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
         private decimal ConvertToDecimal(string strNumber)
         {
             decimal decimalValue;
