@@ -72,14 +72,27 @@ namespace RestWithASPNET.Controllers
             return BadRequest("Invalid Input");
         }
 
-        [HttpGet("average/{firstNumber}/{secondNumber}")]
-        public IActionResult Average(string firstNumber, string secondNumber)
+        [HttpGet("mean/{firstNumber}/{secondNumber}")]
+        public IActionResult Mean(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var average = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
+                var mean = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
 
-                return Ok(average.ToString());
+                return Ok(mean.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("square-root/{firstNumber}")]
+        public IActionResult SquareRoot(string firstNumber)
+        {
+            if (IsNumeric(firstNumber))
+            {
+                var squareRoot = Math.Sqrt((double)ConvertToDecimal(firstNumber));
+
+                return Ok(squareRoot.ToString());
             }
 
             return BadRequest("Invalid Input");
