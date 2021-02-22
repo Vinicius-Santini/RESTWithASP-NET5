@@ -1,7 +1,7 @@
 ﻿using RestWithASPNET.Model;
 using System.Collections.Generic;
 
-namespace RestWithASPNET.Services.Implementations
+namespace RestWithASPNET.Services
 {
     public interface IPersonService
     {
