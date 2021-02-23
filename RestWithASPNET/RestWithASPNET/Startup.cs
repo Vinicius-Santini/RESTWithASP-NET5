@@ -13,8 +13,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RestWithASPNET.Model.Context;
-using RestWithASPNET.Services;
-using RestWithASPNET.Services.Implementations;
+using RestWithASPNET.Business;
+using RestWithASPNET.Business.Implementations;
+using RestWithASPNET.Repository;
+using RestWithASPNET.Repository.Implementations;
 
 namespace RestWithASPNET
 {
@@ -38,7 +40,8 @@ namespace RestWithASPNET
 
             services.AddApiVersioning();
 
-            services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
 
             services.AddSwaggerGen(c =>
