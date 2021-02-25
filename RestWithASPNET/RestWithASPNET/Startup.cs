@@ -18,6 +18,7 @@ using RestWithASPNET.Business.Implementations;
 using RestWithASPNET.Repository;
 using RestWithASPNET.Repository.Implementations;
 using Serilog;
+using RestWithASPNET.Repository.Generic;
 
 namespace RestWithASPNET
 {
@@ -57,6 +58,8 @@ namespace RestWithASPNET
 
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
             services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 
             services.AddSwaggerGen(c =>
