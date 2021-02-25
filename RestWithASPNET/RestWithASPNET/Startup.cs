@@ -16,7 +16,6 @@ using RestWithASPNET.Model.Context;
 using RestWithASPNET.Business;
 using RestWithASPNET.Business.Implementations;
 using RestWithASPNET.Repository;
-using RestWithASPNET.Repository.Implementations;
 using Serilog;
 using RestWithASPNET.Repository.Generic;
 
