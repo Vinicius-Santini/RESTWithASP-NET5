@@ -57,7 +57,6 @@ namespace RestWithASPNET
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
-            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
