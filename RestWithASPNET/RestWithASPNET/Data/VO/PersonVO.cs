@@ -1,7 +1,10 @@
-﻿namespace RestWithASPNET.Data.VO
+﻿using System.Text.Json.Serialization;
+
+namespace RestWithASPNET.Data.VO
 {
     public class PersonVO
     {  
+
         public long Id { get; set; }
 
         public string FirstName { get; set; }
